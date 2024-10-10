@@ -18,8 +18,8 @@ describe("QueryProcessor", () => {
           ));
     });
 
-    test('should return tracyy description', () => {
-        const query = "tracyy";
+    test('should return andrewID description', () => {
+        const query = "andrew id";
         const response: string = QueryProcessor(query);
         expect(response).toBe((
             "tracyy"
@@ -27,10 +27,15 @@ describe("QueryProcessor", () => {
     });
 
     test('should return name description', () => {
-        const query = "tracy yang";
+        const query = "What is your name?";
         const response: string = QueryProcessor(query);
         expect(response).toBe((
-            "tracy yang"
+            "tracyy"
           ));
+    });
+
+    test('should add numbers', () => {
+        expect(QueryProcessor("What is 51 plus 19?")).toEqual("70");
+        expect(QueryProcessor("What is 12 plus 1?")).toEqual("13");
     });
 });
