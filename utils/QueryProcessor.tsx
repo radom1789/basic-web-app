@@ -26,5 +26,14 @@ export default function QueryProcessor(query: string): string {
     return (x+y).toString();
   }
 
+  const getBig = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)/);
+  if (getBig) {
+    const x: number = parseInt(getBig[1]);
+    const y: number = parseInt(getBig[2]);
+    const z: number = parseInt(getBig[3]);
+    const largest = Math.max(x, y, z); 
+    return largest.toString();
+  }
+
   return "";
 }
